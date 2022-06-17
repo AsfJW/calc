@@ -12,40 +12,40 @@
 
   <div class="container">
     <div class="calc-body"> 
-      <div class="calc-screen"></div>
+      <div class="calc-screen" id="screen">
+      </div>
       <div class="calc-button-row">
-        <button class="button">C</button>
-        <button class="button">( )</button>
-        <button class="button">%</button>
-        <button class="button">/</button>
+        <button class="button" id="clear">C</button>
+        <button class="button" id="()">( )</button>
+        <button class="button" id="%">%</button>
+        <button class="button" id="/">/</button>
         </div>
       <div class="calc-button-row">
-      <button class="button">7</button>
-      <button class="button">8</button>
-      <button class="button">9</button>
-      <button class="button">x</button>
+      <button class="button" id="7" onClick="display(this.id)">7</button>
+      <button class="button" id="8" onClick="display(this.id)">8</button>
+      <button class="button" id="9" onClick="display(this.id)">9</button>
+      <button class="button" id="x">x</button>
       </div>
     <div class="calc-button-row">
-      <button class="button">4</button>
-      <button class="button">5</button>
-      <button class="button">6</button>
-      <button class="button">-</button>
+      <button class="button" id="4" onClick="display(this.id)">4</button>
+      <button class="button" id="5" onClick="display(this.id)">5</button>
+      <button class="button" id="6" onClick="display(this.id)">6</button>
+      <button class="button" id="-">-</button>
     </div>
     <div class="calc-button-row">
-      <button class="button">1</button>
-      <button class="button">2</button>
-      <button class="button">3</button>
-      <button class="button">+</button>
+      <button class="button" id="1" onClick="display(this.id)">1</button>
+      <button class="button" id="2" onClick="display(this.id)">2</button>
+      <button class="button" id="3" onClick="display(this.id)">3</button>
+      <button class="button" id="+">+</button>
     </div>
     <div class="calc-button-row">
-      <button class="button">+/-</button>
-      <button class="button">0</button>
-      <button class="button">.</button>
-      <button id="test" >Test</button>
+      <button class="button" id="+">+/-</button>
+      <button class="button" id="0" onClick="display(this.id)">0</button>
+      <button class="button" id=".">.</button>
+      <button class="button" id="=">=</button>
     </div>
   </div>
   </div>
-  <div><p id="testResult"></p></div>
 
   <script src="script.js">
 </script>

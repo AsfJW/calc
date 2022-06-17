@@ -34,10 +34,27 @@ function operate(operator, a, b) {
             break;
     }
 }
+const testBtn = document.getElementById('=');
+const clearBtn = document.getElementById('clear');
+
+testBtn.addEventListener('click', () => {
+    operate('*', 2, 4);
+    console.log(operate('*', 2 , 4));
+})
+
+const currentValue = [];
+
+function display(clicked) {
+    if (currentValue.length > 7) {
+        alert('Can\'t enter more than 8 digits');
+    }
+    else {
+        currentValue.push(clicked);
+        document.getElementById('screen').innerHTML = currentValue.join('');
+    }
+    
+}
 
 
-const btn = document.getElementById('test');
 
-btn.addEventListener('click', () => {
-    document.getElementById('testResult').innerHTML = operate('/', 2, 4);
-} );
+
