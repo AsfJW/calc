@@ -42,15 +42,16 @@ testBtn.addEventListener('click', () => {
     console.log(operate('*', 2 , 4));
 })
 
-const currentValue = [];
+const firstValue = [];
+const secondValue = [];
 
 function display(clicked) {
-    if (currentValue.length > 7) {
+    if (firstValue.length > 7) {
         alert('Can\'t enter more than 8 digits');
     }
     else {
-        currentValue.push(clicked);
-        document.getElementById('screen').innerHTML = currentValue.join('');
+        firstValue.push(clicked);
+        document.getElementById('screen').innerHTML = firstValue.join('');
     }
     
 }
