@@ -15,9 +15,8 @@
       <div class="calc-screen" id="screen">
       </div>
       <div class="calc-button-row">
-        <button class="button" id="clear" onClick="clearAll()">C</button>
-        <button class="button" id="()">( )</button>
-        <button class="button" id="%">%</button>
+        <button class="specialButton" id="clear" onClick="clearAll()">Clear</button>
+        <button class="specialButton" id="delete">Del</button>
         <button class="button" id="/" onClick="display(this.id)">/</button>
         </div>
       <div class="calc-button-row">
@@ -39,8 +38,7 @@
       <button class="button" id="+" onClick="display(this.id)">+</button>
     </div>
     <div class="calc-button-row">
-      <button class="button" id="+/-">+/-</button>
-      <button class="button" id="0" onClick="display(this.id)">0</button>
+      <button class="zeroButton" id="0" onClick="display(this.id)">0</button>
       <button class="button" id=".">.</button>
       <button class="button" id="=" onClick="display(this.id)">=</button>
     </div>

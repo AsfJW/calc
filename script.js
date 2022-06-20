@@ -35,25 +35,23 @@ function operate(operator, a, b) {
     }
 }
 
-// const testBtn = document.getElementById('=');
-// testBtn.addEventListener('click', () => {
-//     operate('*', 2, 4);
-//     console.log(operate('*', 2 , 4));
-// })
-
-
+// Only gets rid of current display
 function clearDisplay() {
     document.getElementById('screen').innerHTML = '';
     currentValue.length = 0;
 }
 
+// Deep clean
 function clearAll() {
     document.getElementById('screen').innerHTML = '';
     currentValue.length = 0;
     firstValue = 0;
     secondValue = 0;
     operator = null;
+    resultDone = false;
 }
+
+// Calc operation
 
 let firstValue = 0;
 let secondValue = 0;
@@ -67,6 +65,7 @@ function display(clicked) {
         alert('Can\'t enter more than 8 digits');
     }
     else if (clicked == '+' || clicked == '-' || clicked == '*' || clicked == '/') {
+        // Check if more than one operation
         if (firstValue != 0) {
             secondValue = currentValue.join('');
             firstValue = operate(operator, Number(firstValue), Number(secondValue));
@@ -78,8 +77,7 @@ function display(clicked) {
         firstValue = currentValue.join('');
         clearDisplay();
         }
-        console.log(`current first value ${firstValue}`);
-        console.log(`current second value ${secondValue}`);
+
     }
 
     else if (clicked == '=') {
@@ -87,11 +85,12 @@ function display(clicked) {
             resultDone = true;
             secondValue = currentValue.join('');
             clearDisplay();
-            document.getElementById('screen').innerHTML = operate(operator, Number(firstValue), Number(secondValue));
+            document.getElementById('screen').innerHTML = Math.round((operate(operator, Number(firstValue), Number(secondValue) + Number.EPSILON)) * 100000) / 100000;
             console.log(`result ${operate(operator, Number(firstValue), Number(secondValue))}`);
         }
+        // Stop weirdness if '=' is pressed repeatedly
         else {
-            document.getElementById('screen').innerHTML = operate(operator, Number(firstValue), Number(secondValue));
+            document.getElementById('screen').innerHTML = Math.round((operate(operator, Number(firstValue), Number(secondValue) + Number.EPSILON)) * 100000) / 100000;
         }
 
     }

@@ -45,6 +45,36 @@ h3 {
     transition: all 0.2s ease-in-out;
   }
 
+  .specialButton {
+    width: 37.5%;
+    background: #425258;
+    color: #fff;
+    padding: 20px;
+    display: inline-block;
+    font-size: 25px;
+    text-align: center;
+    vertical-align: middle;
+    margin-right: -4px;
+    border-right: solid 2px #555b77;
+    border-bottom: solid 2px #555b77;
+    transition: all 0.2s ease-in-out;
+  }
+
+  .zeroButton {
+    width: 50%;
+    background: #425258;
+    color: #fff;
+    padding: 20px;
+    display: inline-block;
+    font-size: 25px;
+    text-align: center;
+    vertical-align: middle;
+    margin-right: -4px;
+    border-right: solid 2px #555b77;
+    border-bottom: solid 2px #555b77;
+    transition: all 0.2s ease-in-out;
+  }
+
 .calc-body {
     width: 275px;
     margin: auto;
