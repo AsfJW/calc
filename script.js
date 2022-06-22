@@ -35,13 +35,14 @@ function operate(operator, a, b) {
 
 // Only gets rid of current display
 function clearDisplay() {
-    document.getElementById('screen').innerHTML = '';
+    document.getElementById('screen-bottom').innerHTML = '';
     currentValue.length = 0;
 }
 
 // Deep clean
 function clearAll() {
-    document.getElementById('screen').innerHTML = '';
+    document.getElementById('screen-bottom').innerHTML = '';
+    document.getElementById('screen-top').innerHTML = '';
     currentValue.length = 0;
     firstValue = 0;
     secondValue = 0;
@@ -52,10 +53,8 @@ function clearAll() {
 // Backspace
 function deleteChar() {
     currentValue.pop();
-    document.getElementById('screen').innerHTML = currentValue.join('');
+    document.getElementById('screen-bottom').innerHTML = currentValue.join('');
 }
-
-// Decimal point
 
 
 // Calc operation
@@ -80,6 +79,7 @@ function display(clicked) {
         else if (firstValue == 0) {
         operator = clicked;
         firstValue = currentValue.join('');
+        document.getElementById('screen-top').innerHTML = firstValue + operator;
         clearDisplay();
         }
 
@@ -91,23 +91,27 @@ function display(clicked) {
             alert('Can\'t divide by 0!');
             clearAll();
         }
+
+        else if (firstValue == 00 && secondValue == 0) {
+            document.getElementById('screen-bottom').innerHTML = currentValue.join('');
+        }
+
         else if (resultDone == false) {
             resultDone = true;
             secondValue = currentValue.join('');
             clearDisplay();
-            document.getElementById('screen').innerHTML = Math.round((operate(operator, Number(firstValue), Number(secondValue) + Number.EPSILON)) * 100000) / 100000;
-            console.log(`result ${operate(operator, Number(firstValue), Number(secondValue))}`);
+            document.getElementById('screen-bottom').innerHTML = Math.round((operate(operator, Number(firstValue), Number(secondValue) + Number.EPSILON)) * 100000) / 100000;
         }
         // Stop weirdness if '=' is pressed repeatedly
         else {
-            document.getElementById('screen').innerHTML = Math.round((operate(operator, Number(firstValue), Number(secondValue) + Number.EPSILON)) * 100000) / 100000;
+            document.getElementById('screen-bottom').innerHTML = Math.round((operate(operator, Number(firstValue), Number(secondValue) + Number.EPSILON)) * 100000) / 100000;
         }
 
     }
 
     else if (clicked == '0' || '1' || '2' || '3' || '4' || '5' || '6' || '7' || '8' || '9' ) {
         currentValue.push(clicked);
-        document.getElementById('screen').innerHTML = currentValue.join('');
+        document.getElementById('screen-bottom').innerHTML = currentValue.join('');
     }
     
 }
