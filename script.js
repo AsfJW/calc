@@ -81,7 +81,12 @@ function display(clicked) {
     }
 
     else if (clicked == '=') {
-        if (resultDone == false) {
+        // Can't divide by 0
+        if ((firstValue == 0 || currentValue.join('') == 0) && operator == '/') {
+            alert('Can\'t divide by 0!');
+            clearAll();
+        }
+        else if (resultDone == false) {
             resultDone = true;
             secondValue = currentValue.join('');
             clearDisplay();
