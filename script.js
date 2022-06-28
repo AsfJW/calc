@@ -48,6 +48,7 @@ function clearAll() {
     secondValue = 0;
     operator = null;
     resultDone = false;
+    topDisplay.length = 0;
 }
 
 // Backspace
@@ -63,6 +64,7 @@ let secondValue = 0;
 let currentValue = [];
 let operator = null;
 let resultDone = false;
+let topDisplay = [];
 
 function display(clicked) {
     if (currentValue.length > 7) {
@@ -74,12 +76,15 @@ function display(clicked) {
             secondValue = currentValue.join('');
             firstValue = operate(operator, Number(firstValue), Number(secondValue));
             operator = clicked;
+            topDisplay.push(' ', operator, ' ');
+            document.getElementById('screen-top').innerHTML = topDisplay.join('');
             clearDisplay();
         }
         else if (firstValue == 0) {
         operator = clicked;
         firstValue = currentValue.join('');
-        document.getElementById('screen-top').innerHTML = firstValue + operator;
+        topDisplay.push(' ', operator, ' ');
+        document.getElementById('screen-top').innerHTML = topDisplay.join('');
         clearDisplay();
         }
 
@@ -92,13 +97,10 @@ function display(clicked) {
             clearAll();
         }
 
-        else if (firstValue == 00 && secondValue == 0) {
-            document.getElementById('screen-bottom').innerHTML = currentValue.join('');
-        }
-
         else if (resultDone == false) {
             resultDone = true;
             secondValue = currentValue.join('');
+            document.getElementById('screen-top').innerHTML = topDisplay.join('');
             clearDisplay();
             document.getElementById('screen-bottom').innerHTML = Math.round((operate(operator, Number(firstValue), Number(secondValue) + Number.EPSILON)) * 100000) / 100000;
         }
@@ -110,6 +112,7 @@ function display(clicked) {
     }
 
     else if (clicked == '0' || '1' || '2' || '3' || '4' || '5' || '6' || '7' || '8' || '9' ) {
+        topDisplay.push(clicked);
         currentValue.push(clicked);
         document.getElementById('screen-bottom').innerHTML = currentValue.join('');
     }
