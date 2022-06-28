@@ -92,7 +92,7 @@ function display(clicked) {
 
     else if (clicked == '=') {
         // Can't divide by 0
-        if ((firstValue == 0 || currentValue.join('') == 0) && operator == '/') {
+        if (resultDone == false && currentValue.join('') == 0 && operator == '/') {
             alert('Can\'t divide by 0!');
             clearAll();
         }
